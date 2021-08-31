@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top navbar-custom">
+    <a class="navbar-brand" href=".?action=Home">Home</a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href=".?action=Show How It Works">How it Works</a></li>
+            <li class="nav-item">
+                    <a class="nav-link" href=".?action=Show Products">Products</a></li>
+            
+            {% if session.is_valid_user is empty %}
+                <li class="nav-item">
+                    <a class="nav-link" href=".?action=Show Registration">Register</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href=".?action=Show Login">Login</a></li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href=".?action=View Orders">My Orders</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href=".?action=Logout">Logout</a></li>
+            {% endif %}
+          </ul>
+    </div>
+          
+    <div class="navbar-collapse collapse">
+        <ul class="navbar-nav ml-auto">
+    {% if session.client_name %}
+        <li class="nav-item" style="color: #fef9e2">Hello {{ session.client_name }}!</li>
+    {% endif %}
+        </ul>
+    </div>
+</nav>
+
+   

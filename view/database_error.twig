@@ -1,0 +1,10 @@
+{{ include('./shared/header.twig') }}
+{{ include('./shared/nav.twig') }}
+<main>
+    <h2>Database Error</h2>
+    <p class="first_paragraph">There was an error connecting to the database.</p>
+    <p class="last_paragraph">Error message: {{ error_message|e }}</p>
+</main>
+{{ include('./shared/footer.twig') }}
+</body>
+</html>

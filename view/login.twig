@@ -1,0 +1,26 @@
+{{ include('./shared/header.twig') }}
+{{ include('./shared/nav.twig') }}
+<main>
+    <h2>Login</h2>
+
+    <form action="." method="post" id="login_form" class="aligned">
+        <div class="form-group">
+            <label for="login_email">Username:</label>
+            <input type="text" class="form-control" name="username" id="login_user" 
+                   placeholder="Enter username">
+        </div>
+        
+        <div class="form-group">
+            <label for="login_password">Password:</label>
+            <input type="password" class="form-control" name="password" id="login_password" 
+                   placeholder="Password">
+        </div>
+
+        <input type="submit" class="btn btn-primary" name="action" value="Login">
+    </form>
+
+    <p>{{ login_message|e }}</p>
+</main>
+{{ include('./shared/footer.twig') }}
+</body>
+</html>

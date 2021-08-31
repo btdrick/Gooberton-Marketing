@@ -1,0 +1,44 @@
+{{ include('./shared/header.twig') }}
+{{ include('./shared/nav.twig') }}
+<main>
+    <h2>Client Registration</h2>
+
+
+    <form action="." method="post" id="login_form" class="aligned">
+        <div class="form-group">
+            <label for="register_first_name">First Name:</label>
+            <input type="text" class="form-control" name="firstName" id="register_first_name" 
+                   placeholder="First Name">
+            <p class="error">{{ error_first_name|e }}</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="register_last_name">Last Name:</label>
+            <input type="text" class="form-control" name="lastName" id="register_last_name" 
+                   placeholder="Last Name">
+            <p class="error">{{ error__last_name|e }}</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="register_email">Username:</label>
+            <input type="text" class="form-control" name="username" id="register_user" 
+                   aria-describedby="usernane_help" placeholder="Username">
+            <small id="username_help" class="form-text text-muted">We'll never 
+                share your information with anyone else.</small>
+            <p class="error">{{ error_username|e }}</p>
+        </div>
+        
+        <div class="form-group">
+            <label for="register_password">Password:</label>
+            <input type="password" class="form-control" name="password" id="register_password" 
+                   placeholder="Password">
+            <p class="error">{{ error_password|e }}</p>
+        </div>
+        
+        <input type="submit" class="btn btn-primary" name="action" value="Register">
+    </form>
+
+</main>
+{{ include('./shared/footer.twig') }}
+</body>
+</html>

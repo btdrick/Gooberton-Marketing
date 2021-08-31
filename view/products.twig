@@ -1,0 +1,31 @@
+{{ include('./shared/header.twig') }}
+{{ include('./shared/nav.twig') }}
+<main role="main" class="container flex-shrink-0">
+    <h1>Product List</h1>
+    <p>Products are currently subject to a pre-order only system until February 30, 2022.</p>
+        
+        <table class="table table-striped thead-dark">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">View</th>
+            </tr>
+            </thead>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.productCode|e }}</td>
+                <td>{{ product.productName|e }}</td>
+                <td>{{ product.listPrice }}</td>
+                <td><form action="." method="post" class="aligned" style="margin: 0">
+                    <input type="hidden" name="product_code"
+                           value="{{ product.productCode }}">
+                    <input type="submit" name="action" value="Add Order" class="btn btn-primary">
+                </form></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+</main>
+{{ include('./shared/footer.twig') }}

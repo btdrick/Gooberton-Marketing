@@ -1,0 +1,33 @@
+{{ include('./shared/header.twig') }}
+{{ include('./shared/nav.twig') }}
+<main role="main" class="container flex-shrink-0">
+    <h3>Pre-Orders by {{ session.client_name }}:</h3>
+    
+    {% if orders is empty %}
+        <p>You have no orders registered.</p>
+    {% else %}
+        <table class="table table-hover thead-dark">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Product Code</th>
+                <th scope="col">Registration Date</th>
+                <th scope="col">&nbsp;</th>
+            </tr>
+            </thead>
+        {% for order in orders %}
+        <tr>
+            <td style="padding-left: 2em">{{ order.productCode|e }}</td>
+            <td>Registered on {{ order.registrationDate|e }}</td>
+            <td><form action="." method="post" class="aligned" style="margin: 0">
+                    <input type="hidden" name="order_number"
+                           value="{{ order.orderNumber }}">
+                    <input type="submit" name="action" value="Delete Order" class="btn btn-primary">
+                </form></td>
+        </tr>
+        {% endfor %}
+        </table>
+        <p>Orders and payment will be fulfilled February 30, 2022.</p>
+    {% endif %}
+    </section>
+</main>
+{{ include('./shared/footer.twig') }}
